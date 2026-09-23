@@ -28,14 +28,19 @@
     color: #999;
     margin-top: 10px;
   }
-  .sub + .sub {
-    margin-top: 24px;
+  .sub-first {
+    margin-top: 30px;
   }
   .links {
-    margin-top: 10px;
+    margin-top: 6px;
     display: flex;
     flex-direction: column;
     gap: 12px;
+  }
+  .countdown {
+    font-size: 1.3rem;
+    color: #999;
+    margin-bottom: 20px;
   }
   .links a {
     color: #eee;
@@ -46,13 +51,27 @@
 </head>
 <body>
 
+  <div class="countdown">Redirecting in <span id="count">10</span>...</div>
   <h1>whoops, you done messed up</h1>
-  <div class="sub">(or I messed up)</div>
-  <div class="sub">If you didn't mean to go here click below to return to my homepage.</div>
+  <div class="sub sub-first">(or I messed up)</div>
+  <div class="sub">If you were not automatically redirected to the site</div>
 
   <div class="links">
     <a href="https://lazernick37.win">click here</a>
   </div>
+
+  <script>
+    let seconds = 10;
+    const countEl = document.getElementById("count");
+    const timer = setInterval(() => {
+      seconds--;
+      countEl.textContent = seconds;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = "https://lazernick37.win";
+      }
+    }, 1000);
+  </script>
 
 </body>
 </html>
